@@ -20,6 +20,7 @@ public class WeatherActivity extends AppCompatActivity {
     String[] weatherList = new String[]  {"Rains over a few places",
             "Showers and thunderstorms over several places. ",
             "Showers over a few places", "Showers over a few  places", "25-35oC "};
+    String[] city = new String[] {"London", "Texas", "Miami", "California", "Washington"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +28,7 @@ public class WeatherActivity extends AppCompatActivity {
         setContentView(R.layout.activity_weather);
         ButterKnife.bind(this);
 
-        ArrayAdapter adapter = new ArrayAdapter(WeatherActivity.this, android.R.layout.simple_list_item_1, weatherList);
+        WeatherArrayAdapter adapter = new WeatherArrayAdapter(WeatherActivity.this, android.R.layout.simple_list_item_1, weatherList, city);
         mListView.setAdapter(adapter);
 
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
